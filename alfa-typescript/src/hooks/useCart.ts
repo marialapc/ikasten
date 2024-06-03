@@ -4,7 +4,7 @@ import type { Guitar, CartItem } from "../types";
  
  export const useCart = () => {
 
-    const initialCart = () : CartItem => {
+    const initialCart = () : CartItem[] => {
         const localStorageCart = localStorage.getItem('cart')
         return localStorageCart ? JSON.parse(localStorageCart) : []
       }
@@ -30,15 +30,13 @@ import type { Guitar, CartItem } from "../types";
           const newItem : CartItem = {...item, quantity : 1}
           setCart([...cart, newItem]);
         }
-    
-        saveLocalStorage()
       }
     
-      function removeFromCart(id) {
+      function removeFromCart(id : Guitar['id']) {
         setCart(prevCart => prevCart.filter(guitar => guitar.id !== id))
       }
     
-      function increaseQuantity(id) {
+      function increaseQuantity(id : Guitar['id']) {
         const updatedCart = cart.map( item => {
           if(item.id === id && item.quantity < max_items) {
             return {
@@ -51,7 +49,7 @@ import type { Guitar, CartItem } from "../types";
         setCart(updatedCart)
       }
     
-      function decreaseQuantity(id) {
+      function decreaseQuantity(id : Guitar['id']) {
          const updatedCart = cart.map( item => {
           if(item.id === id && item.quantity > min_items) {
             return {
@@ -69,9 +67,7 @@ import type { Guitar, CartItem } from "../types";
         setCart([])
       }
     
-  
-
-      
+    
     const isEmpty = useMemo( () => cart.length === 0, [cart])
     const cartTotal = useMemo( () => cart.reduce( (total, item) => total + (item.quantity * item.price), 0 ), [cart] )
     

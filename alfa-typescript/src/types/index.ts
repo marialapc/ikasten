@@ -10,3 +10,5 @@ export type Guitar = {
     quantity: number
   }
 
+  export type GuitarID = Guitar['id']
+
