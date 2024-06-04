@@ -6,7 +6,7 @@ import OrderContents from "./components/OrderContents"
 
 function App() {
 
-  const { order, addItem } = useOrder()
+  const { order, addItem, removeItem } = useOrder()
 
   return (
     <>
@@ -32,6 +32,7 @@ function App() {
       <div className="border border-dashed border-slate-300 p-5 rounded-lg space-y-10">
             <OrderContents 
              order={order}
+             removeItem={removeItem}
             />
       </div>
 
