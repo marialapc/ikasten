@@ -1,3 +1,5 @@
+import { menuItems } from "./data/db"
+
 
 function App() {
 
