@@ -27,6 +27,5 @@ export default function useOrder () {
         order,
         addItem,
         removeItem
-
     }
 }
