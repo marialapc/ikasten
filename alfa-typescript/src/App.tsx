@@ -20,7 +20,7 @@ function App() {
         cartTotal={cartTotal}
       />
       <main className="container-xl mt-5">
-        <h2 className="text-center fs-3">Our Collection</h2>
+        <h3 className="text-center" style={{ fontSize: '32px' }}>ToWatch Shop</h3>
 
         <div className="row mt-5" style={{ marginRight: 0, marginLeft: 0, justifyContent: 'center' }}>
           {data.map((guitar) => (

@@ -18,12 +18,12 @@ export default function Guitar({ guitar, addToCart} : GuitarProps) {
         />
       </div>
       <div className="col-8 flex flex-col justify-between">
-        <h3 className="text-black fs-5 fw-bold text-uppercase">{guitar.name}</h3>
+        <h3 className="text-black fs-5 fw-bold">{guitar.name}</h3>
         <p>{guitar.description}</p>
-        <h3 className="fw-black fs-4">${guitar.price}</h3>
+        <h3 className="fw-black" style={{ fontSize: '16px' }}>${guitar.price}</h3>
         <button
           type="button"
-          className="btn btn-dark w-100 fs-2"
+          className="btn btn-dark w-50" style={{ fontSize: '14px' }}
           onClick={() => addToCart(guitar)}
         >
           Añadir a la cesta
