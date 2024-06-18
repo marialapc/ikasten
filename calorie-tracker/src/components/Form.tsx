@@ -1,6 +1,6 @@
 import { useState, ChangeEvent, FormEvent } from "react"
-import {Activity } from "../types"
 import { categories } from "../data/categories"
+import type { Activity } from "../types"
 
 export default function Form () {
 
