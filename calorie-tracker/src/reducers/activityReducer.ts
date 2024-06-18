@@ -16,8 +16,13 @@ export const activityReducer = (
     action: ActivityActions
 ) => {
 
+
     if(action.type === 'save-activity') {
-        console.log('desde el tyupe de save-activity')
+      
+        return {
+            ...state,
+            activities: [...state.activities, action.payload.newActivity]
+        }
     }
 
 
