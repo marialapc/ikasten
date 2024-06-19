@@ -28,7 +28,7 @@ export default function Form({dispatch, state} : FormProps) {
      }, [state.activeId])
 
 
-    const handleChange = (e: ChangeEvent<HTMLSelectElement> | ChangeEvent<HTMLSelectElement>) => {
+    const handleChange = (e: ChangeEvent<HTMLSelectElement> | ChangeEvent<HTMLInputElement>) => {
         setActivity ({
             ...activity,
             [e.target.id]: e.target.value
