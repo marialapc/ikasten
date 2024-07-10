@@ -1,4 +1,4 @@
-export type Guitar = {
+export type Film = {
     id: number
     name: string
     image: string
@@ -6,9 +6,9 @@ export type Guitar = {
     price: number
   }
 
-  export type CartItem = Guitar & {
+  export type CartItem = Film & {
     quantity: number
   }
 
-  export type GuitarID = Guitar['id']
+  export type FilmID = Film['id']
 

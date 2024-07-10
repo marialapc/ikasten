@@ -1,7 +1,7 @@
 
-import type { Guitar } from '../types'
+import type { Film } from '../types'
 
-export const db : Guitar[] = [
+export const db : Film[] = [
     {
         "id": 1,
         "name": "Goodfellas",

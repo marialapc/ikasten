@@ -42,18 +42,18 @@ export default function Header({ cart, dispatch }: HeaderProps) {
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                {cart.map(guitar => (
-                                                    <tr key={guitar.id}>
+                                                {cart.map(film => (
+                                                    <tr key={film.id}>
                                                         <td>
                                                             <img
                                                                 className="img-fluid"
-                                                                src={`/img/${guitar.image}.jpg`}
-                                                                alt="imagen guitarra"
+                                                                src={`/img/${film.image}.jpg`}
+                                                                alt="imagen filmra"
                                                             />
                                                         </td>
-                                                        <td>{guitar.name}</td>
+                                                        <td>{film.name}</td>
                                                         <td className="fw-bold">
-                                                            {guitar.price}
+                                                            {film.price}
                                                         </td>
                                                         <td className="flex align-items-start gap-4">
                                                             <button
@@ -61,18 +61,18 @@ export default function Header({ cart, dispatch }: HeaderProps) {
                                                                 className="btn btn-dark"
                                                                 onClick={() => dispatch({
                                                                     type: 'decrease-quantity',
-                                                                    payload: { id: guitar.id }
+                                                                    payload: { id: film.id }
                                                                 })}
                                                             >
                                                                 -
                                                             </button>
-                                                            {guitar.quantity}
+                                                            {film.quantity}
                                                             <button
                                                                 type="button"
                                                                 className="btn btn-dark"
                                                                 onClick={() => dispatch({
                                                                     type: 'increase-quantity',
-                                                                    payload: { id: guitar.id }
+                                                                    payload: { id: film.id }
                                                                 })}
                                                             >
                                                                 +
@@ -84,7 +84,7 @@ export default function Header({ cart, dispatch }: HeaderProps) {
                                                                 type="button"
                                                                 onClick={() => dispatch({
                                                                     type: 'remove-from-cart',
-                                                                    payload: { id: guitar.id }
+                                                                    payload: { id: film.id }
                                                                 })}
                                                             >
                                                                 X
