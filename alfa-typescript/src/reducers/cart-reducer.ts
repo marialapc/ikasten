@@ -1,21 +1,27 @@
 import { db } from "../data/db";
-import { CartItem, Guitar } from "../types";
+import type { CartItem, Guitar } from "../types";
 
-export type CartActions = 
-    { type: 'add-to-cart', payload: {item: Guitar} } |
-    { type: 'remove-from-cart', payload: {id : Guitar['id']}} |
-    { type: 'decrease-quantity', payload:{id : Guitar['id']} } |
-    { type: 'increase-quantity', payload:{id : Guitar['id']} } |
-    { type: 'clear-cart'}
+export type CartActions =
+    { type: 'add-to-cart', payload: { item: Guitar } } |
+    { type: 'remove-from-cart', payload: { id: Guitar['id'] } } |
+    { type: 'decrease-quantity', payload: { id: Guitar['id'] } } |
+    { type: 'increase-quantity', payload: { id: Guitar['id'] } } |
+    { type: 'clear-cart' }
 
 export type CartState = {
     data: Guitar[]
     cart: CartItem[]
 }
 
-export const initialState : CartState = {
+const initialCart = (): CartItem[] => {
+    const localStorageCart = localStorage.getItem('cart')
+    return localStorageCart ? JSON.parse(localStorageCart) : []
+}
+
+
+export const initialState: CartState = {
     data: db,
-    cart: []
+    cart: initialCart()
 }
 
 const max_items = 5
@@ -23,58 +29,88 @@ const min_items = 1
 
 
 export const cartReducer = (
-        state: CartState = initialState,
-        action: CartActions
-    ) => {
-        if(action.type === "add-to-cart") {
-            const itemExists = state.cart.findIndex(guitar => guitar.id === action.payload.item.id);
+    state: CartState = initialState,
+    action: CartActions
+) => {
+    if (action.type === "add-to-cart") {
+        const itemExists = state.cart.find(guitar => guitar.id === action.payload.item.id);
 
-            let updatedCart : CartItem[] = []
+        let updatedCart: CartItem[] = []
 
-            if(itemExists >= 0) {
-              if(state.cart[itemExists].quantity >= max_items) return
-              updatedCart = [...state.cart];
-              updatedCart[itemExists].quantity++
-            } else {
-              const newItem : CartItem = {...action.payload.item, quantity : 1}
-              updatedCart = [...state.cart, newItem]
-            }
- 
-            return {
-                ...state,
-                cart:updatedCart
-            }
+        if (itemExists) {
+            updatedCart = state.cart.map(item => {
+                if (item.id === action.payload.item.id) {
+                    if (item.quantity < max_items) {
+                        return { ...item, quantity: item.quantity + 1 }
+                    } else {
+                        return item
+                    }
+                } else {
+                    return item
+                }
+            })
+
+        } else {
+            const newItem: CartItem = { ...action.payload.item, quantity: 1 }
+            updatedCart = [...state.cart, newItem]
         }
 
-        if(action.type === 'remove-from-cart') {
-
-            return {
-                ...state
-            }
+        return {
+            ...state,
+            cart: updatedCart
         }
-
-        if(action.type === 'decrease-quantity') {
-
-            return {
-                ...state
-            }
-        }
-
-        
-        if(action.type === 'increase-quantity') {
-            
-            return {
-                ...state
-            }
-        }
-
-        if(action.type === 'clear-cart') {
-            
-            return {
-                ...state
-            }
-        }
-
-        return state
-
     }
+
+    if (action.type === 'remove-from-cart') {
+        const cart = state.cart.filter(item => item.id !== action.payload.id)
+        return {
+            ...state,
+            cart
+        }
+    }
+
+    if (action.type === 'decrease-quantity') {
+        const cart = state.cart.map(item => {
+            if (item.id === action.payload.id && item.quantity > min_items) {
+                return {
+                    ...item,
+                    quantity: item.quantity - 1
+                }
+            }
+            return item
+        })
+
+        return {
+            ...state,
+            cart
+        }
+    }
+
+
+    if (action.type === 'increase-quantity') {
+        const cart = state.cart.map(item => {
+            if (item.id === action.payload.id && item.quantity < max_items) {
+                return {
+                    ...item,
+                    quantity: item.quantity + 1
+                }
+            }
+            return item
+        })
+
+        return {
+            ...state,
+            cart
+        }
+    }
+
+    if (action.type === 'clear-cart') {
+        return {
+            ...state,
+            cart: []
+        }
+    }
+
+    return state
+
+}

@@ -2,7 +2,7 @@ export type Guitar = {
     id: number
     name: string
     image: string
-    description: string
+    director: string
     price: number
   }
 
