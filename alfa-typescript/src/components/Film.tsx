@@ -21,7 +21,7 @@ export default function Film({ film, dispatch }: FilmProps) {
       </div>
       <div className="col-8 flex flex-col justify-between">
         <h3 className="text-black fs-5 fw-bold">{film.name}</h3>
-        <p>{film.director}</p>
+        <p  style={{ color: 'grey' }}>{film.director}</p>
         <h3 className="fw-black" style={{ fontSize: '16px' }}>${film.price}</h3>
         <button
           type="button"
