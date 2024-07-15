@@ -11,6 +11,11 @@ export default function Header({ cart, dispatch }: HeaderProps) {
 
     const isEmpty = useMemo(() => cart.length === 0, [cart])
     const cartTotal = useMemo(() => cart.reduce((total, item) => total + (item.quantity * item.price), 0), [cart])
+    const roundedCartTotal = roundToTwo(cartTotal);
+
+    function roundToTwo(num) {
+        return Math.round(num * 100) / 100;
+    }
 
     return (
         <header className="py-5 header">
@@ -96,7 +101,7 @@ export default function Header({ cart, dispatch }: HeaderProps) {
                                         </table>
 
                                         <p className="text-end">Total pagar:
-                                            <span className="fw-bold">${cartTotal}</span></p>
+                                            <span className="fw-bold">${roundedCartTotal}</span></p>
 
                                     </>
                                 )}
