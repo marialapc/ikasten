@@ -106,12 +106,12 @@
   --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
-  --bs-body-font-family: Outfit, sans-serif;
+  --bs-body-font-family: arial;
   --bs-body-font-size: 1rem;
   --bs-body-font-weight: 400;
   --bs-body-line-height: 1.5;
   --bs-body-color: #212529;
-  --bs-body-bg: #FFF;
+  --bs-body-bg: #f3f3f3;
   --bs-border-width: 1px;
   --bs-border-style: solid;
   --bs-border-color: #dee2e6;
@@ -153,13 +153,13 @@ body {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
- h3, .h3, h2, .h2, h1, .h1 {
+  h2, .h2, h1, .h1 {
   margin-top: 0;
   margin-bottom: 0.5rem;
-  font-family: "Outfit", sans-serif;
+  font-family:'arial';
   font-weight: 900;
   line-height: 1.2;
-  color: #5725D3;
+  color: #ff3e72;
 }
 
 h1, .h1 {
@@ -297,7 +297,7 @@ button:not(:disabled),
 }
 
 ::file-selector-button {
-  font: inherit;
+  font: arial;
   -webkit-appearance: button;
 }
 
@@ -357,7 +357,7 @@ button:not(:disabled),
 
 .col-4 {
   flex: 0 0 auto;
-  width: 33.33333333%;
+
 }
 
 .col-8 {

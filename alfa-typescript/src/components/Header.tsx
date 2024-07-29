@@ -85,7 +85,7 @@ export default function Header({ cart, dispatch }: HeaderProps) {
                                                         </td>
                                                         <td>
                                                             <button
-                                                                className="btn btn-danger"
+                                                                className="btn"
                                                                 type="button"
                                                                 onClick={() => dispatch({
                                                                     type: 'remove-from-cart',
