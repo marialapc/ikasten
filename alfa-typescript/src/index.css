@@ -268,9 +268,7 @@ button {
 }
 
 button,
-[type=button] {
-  -webkit-appearance: button;
-}
+
 button:not(:disabled),
 [type=button]:not(:disabled) {
   cursor: pointer;
@@ -311,10 +309,6 @@ button:not(:disabled),
   padding: 0;
 }
 
-::file-selector-button {
-  font: arial;
-  -webkit-appearance: button;
-}
 
 .display-2 {
   font-size: calc(1.575rem + 3.9vw);
@@ -656,10 +650,6 @@ button:not(:disabled),
 .py-2 {
   padding-top: 0.5rem !important;
   padding-bottom: 0.5rem !important;
-}
-
-.py-5 {
- 
 }
 
 .pt-5 {

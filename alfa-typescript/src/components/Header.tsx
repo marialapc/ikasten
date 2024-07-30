@@ -13,7 +13,7 @@ export default function Header({ cart, dispatch }: HeaderProps) {
     const cartTotal = useMemo(() => cart.reduce((total, item) => total + (item.quantity * item.price), 0), [cart])
     const roundedCartTotal = roundToTwo(cartTotal);
 
-    function roundToTwo(num) {
+    function roundToTwo(num: number): number {
         return Math.round(num * 100) / 100;
     }
 
