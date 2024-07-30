@@ -630,8 +630,12 @@ button:not(:disabled),
 }
 
 .mt-5 {
-  margin-top: 1rem !important;
+  margin-top: 6rem !important;
   margin-bottom: 1rem !important;
+
+  @media (min-width: 768px) {
+    margin-top: 7rem !important;
+  }
 }
 
 .p-2 {
@@ -817,4 +821,9 @@ button:not(:disabled),
 
 .js-carrito.grow {
   animation: grow 0.2s ease-in-out;
+}
+
+footer {
+  margin-top: 3rem;
+  margin-bottom: 2rem;
 }

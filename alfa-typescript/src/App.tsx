@@ -32,7 +32,7 @@ function App() {
         </div>
       </main>
 
-      <footer className="bg-dark mt-5 py-5">
+      <footer className="bg-dark py-5">
         <div className="">
           <p className="text-center fs-2 mt-4 m-md-0">
            Made with ❤ by @marialapc
