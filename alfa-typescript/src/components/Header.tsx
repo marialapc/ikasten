@@ -20,13 +20,13 @@ export default function Header({ cart, dispatch }: HeaderProps) {
     return (
         <header className="py-5 header">
         <a href="index.html">
-           <img className="logo" src="src\assets\TW.jpg" alt="" />
+           <img className="logo" src="img\TW.jpg" alt="" />
         </a>
         <nav className="">
                         <div
                             className="carrito js-carrito"
                         >
-                            <img className="img-fluid" src="src\assets\shopping-bag.png" alt="imagen carrito" />
+                            <img className="img-fluid" src="img\shopping-bag.png" alt="imagen carrito" />
 
                             <div id="carrito" className="bg-white p-3">
                                 {isEmpty ? (
