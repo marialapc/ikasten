@@ -20,7 +20,6 @@ function App() {
         dispatch={dispatch}
       />
       <main className="container-xl mt-5">
-        <h3 className="text-center" style={{ fontSize: '32px' }}>ToWatch Shop</h3>
 
         <div className="row mt-5" style={{ marginRight: 0, marginLeft: 0, justifyContent: 'center' }}>
           {state.data.map((film) => (
@@ -34,9 +33,9 @@ function App() {
       </main>
 
       <footer className="bg-dark mt-5 py-5">
-        <div className="container-xl">
-          <p className="text-white text-center fs-2 mt-4 m-md-0">
-            ToWatch - Shop
+        <div className="">
+          <p className="text-center fs-2 mt-4 m-md-0">
+           Made with ❤ by @marialapc
           </p>
         </div>
       </footer>

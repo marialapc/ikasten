@@ -19,17 +19,14 @@ export default function Header({ cart, dispatch }: HeaderProps) {
 
     return (
         <header className="py-5 header">
-            <div className="container-xl">
-                <div className="row justify-content-center justify-content-md-between">
-                    <div className="col-8 col-md-3">
-                        <a href="index.html">
-                        </a>
-                    </div>
-                    <nav className="col-md-6 a mt-5 d-flex align-items-start justify-content-end">
+        <a href="index.html">
+           <img className="logo" src="src\assets\TW.jpg" alt="" />
+        </a>
+        <nav className="">
                         <div
-                            className="carrito"
+                            className="carrito js-carrito"
                         >
-                            <img className="img-fluid" src="img/carrito.png" alt="imagen carrito" />
+                            <img className="img-fluid" src="src\assets\shopping-bag.png" alt="imagen carrito" />
 
                             <div id="carrito" className="bg-white p-3">
                                 {isEmpty ? (
@@ -111,9 +108,8 @@ export default function Header({ cart, dispatch }: HeaderProps) {
                                     className="btn btn-dark w-100 mt-3 p-2">Vaciar Carrito</button>
                             </div>
                         </div>
-                    </nav>
-                </div>
-            </div>
+        </nav>
+             
         </header>
 
     )

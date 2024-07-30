@@ -33,6 +33,7 @@ export const cartReducer = (
     action: CartActions
 ) => {
     if (action.type === "add-to-cart") {
+
         const itemExists = state.cart.find(film => film.id === action.payload.item.id);
 
         let updatedCart: CartItem[] = []
@@ -54,6 +55,14 @@ export const cartReducer = (
             const newItem: CartItem = { ...action.payload.item, quantity: 1 }
             updatedCart = [...state.cart, newItem]
         }
+
+        setTimeout(() => {
+            const carritoIcon = document.querySelector('.js-carrito');
+            if (carritoIcon) {
+                carritoIcon.classList.add('grow');
+                setTimeout(() => carritoIcon.classList.remove('grow'), 200);
+            }
+        }, 0);
 
         return {
             ...state,
