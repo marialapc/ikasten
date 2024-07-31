@@ -22,45 +22,46 @@ export default function Header({ cart, dispatch }: HeaderProps) {
         <a href="index.html">
            <img className="logo" src="img\TW.jpg" alt="" />
         </a>
+        <div className="">
         <nav className="">
                         <div
                             className="carrito js-carrito"
                         >
                             <img className="img-fluid" src="img\shopping-bag.png" alt="imagen carrito" />
 
-                            <div id="carrito" className="bg-white p-3">
+                            <div id="carrito" className="bg-white">
                                 {isEmpty ? (
                                     <p className="text-center">La cesta está vacía</p>
                                 ) : (
                                     <>
-                                        <table className="w-100 table">
-                                            <thead>
-                                                <tr>
-                                                    <th>Imagen</th>
-                                                    <th>Nombre</th>
-                                                    <th>Precio</th>
-                                                    <th>Cantidad</th>
-                                                    <th></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
+                                        <div className="table">
+                                        
+                                            <div>
                                                 {cart.map(film => (
-                                                    <tr key={film.id}>
-                                                        <td>
+                                                    <>
+                                                    <ul className="cart-list" key={film.id}>
+                                                        <div>
+                                                        <li >
                                                             <img
                                                                 className="img-fluid"
                                                                 src={`/img/${film.image}.jpg`}
                                                                 alt="imagen filmra"
                                                             />
-                                                        </td>
-                                                        <td>{film.name}</td>
-                                                        <td className="fw-bold">
-                                                            {film.price}
-                                                        </td>
-                                                        <td className="flex align-items-start gap-4">
+                                                        </li>
+                                                        </div>
+                                                        <div>
+                                                            <div>
+                                                        <li>{film.name}</li>
+                                                        <li className="fw-bold">
+                                                            {film.price} €
+                                                        </li>
+                                                        </div>
+                        
+                                                         <ul className="button-container">
+                                                        <li className="button-container">
                                                             <button
                                                                 type="button"
-                                                                className="btn btn-dark"
+                                                                className="price-btn"
                                                                 onClick={() => dispatch({
                                                                     type: 'decrease-quantity',
                                                                     payload: { id: film.id }
@@ -71,7 +72,7 @@ export default function Header({ cart, dispatch }: HeaderProps) {
                                                             {film.quantity}
                                                             <button
                                                                 type="button"
-                                                                className="btn btn-dark"
+                                                                className="price-btn"
                                                                 onClick={() => dispatch({
                                                                     type: 'increase-quantity',
                                                                     payload: { id: film.id }
@@ -79,8 +80,8 @@ export default function Header({ cart, dispatch }: HeaderProps) {
                                                             >
                                                                 +
                                                             </button>
-                                                        </td>
-                                                        <td>
+                                                        </li>
+                                                        <li>
                                                             <button
                                                                 className="btn"
                                                                 type="button"
@@ -89,27 +90,33 @@ export default function Header({ cart, dispatch }: HeaderProps) {
                                                                     payload: { id: film.id }
                                                                 })}
                                                             >
-                                                                X
+                                                                x
                                                             </button>
-                                                        </td>
-                                                    </tr>
+                                                        </li>
+                                                        </ul>
+                                                        </div>
+                                                        </ul>
+                                                        <hr />
+                                                 </>
                                                 ))}
-                                            </tbody>
-                                        </table>
+                                            </div>
+                                        </div>
 
-                                        <p className="text-end">Total pagar:
-                                            <span className="fw-bold">${roundedCartTotal}</span></p>
+                                        <p className="text-end">Total:
+                                            <span className="fw-bold"> ${roundedCartTotal}</span></p>
 
                                     </>
                                 )}
 
                                 <button
                                     onClick={() => dispatch({ type: 'clear-cart' })}
-                                    className="btn btn-dark w-100 mt-3 p-2">Vaciar Carrito</button>
+                                    className="btn btn-dark w-100 mt-3">Vaciar Carrito
+                                </button>
                             </div>
                         </div>
         </nav>
-             
+             <span className="counter js-counter">0</span>
+             </div>
         </header>
 
     )

@@ -23,7 +23,7 @@ export default function Film({ film, dispatch }: FilmProps) {
         <h3 className="text-white fs-5 fw-bold">{film.name}</h3>
         <p  style={{ color: 'grey' }}>{film.director}</p>
         <div className='price-button-container'>
-        <h3 className="text-white" style={{ fontSize: '14px' }}>${film.price}</h3>
+        <h3 className="text-white" style={{ fontSize: '14px' }}>{film.price}  €</h3>
         <button
           type="button"
           className="btn btn-dark w-50" style={{ fontSize: '14px' }}
