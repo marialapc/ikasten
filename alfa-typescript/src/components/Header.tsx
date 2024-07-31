@@ -102,7 +102,7 @@ export default function Header({ cart, dispatch }: HeaderProps) {
                                         </div>
 
                                         <p className="text-end">Total:
-                                            <span className="fw-bold"> ${roundedCartTotal}</span></p>
+                                            <span className="fw-bold"> {roundedCartTotal} €</span></p>
 
                                     </>
                                 )}
