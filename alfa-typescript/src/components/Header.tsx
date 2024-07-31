@@ -22,7 +22,6 @@ export default function Header({ cart, dispatch }: HeaderProps) {
         <a href="index.html">
            <img className="logo" src="img\TW.jpg" alt="" />
         </a>
-        <div className="">
         <nav className="">
                         <div
                             className="carrito js-carrito"
@@ -115,8 +114,7 @@ export default function Header({ cart, dispatch }: HeaderProps) {
                             </div>
                         </div>
         </nav>
-             <span className="counter js-counter">0</span>
-             </div>
+             
         </header>
 
     )
