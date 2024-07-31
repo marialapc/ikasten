@@ -45,6 +45,7 @@
   top: 100%;
   right: 0;
   left: unset;
+  padding-top: 20px;
   padding-bottom: 20px;
   margin-left: unset;
   margin-right: unset;
@@ -247,6 +248,8 @@ table {
 .table {
   max-height: 420px;
   padding: 20px;
+  padding-top: 0;
+  padding-bottom: 12px;
   overflow-y: auto;
 }
 
@@ -704,6 +707,7 @@ button:not(:disabled),
 .text-end {
   text-align: right !important;
   padding-right: 8%;
+  padding-top: 8px;
   width: 100%;
 }
 
