@@ -97,6 +97,7 @@ export const cartReducer = (
 
 
     if (action.type === 'increase-quantity') {
+        console.log('increase-quantity')
         const cart = state.cart.map(item => {
             if (item.id === action.payload.id && item.quantity < max_items) {
                 return {
@@ -114,6 +115,7 @@ export const cartReducer = (
     }
 
     if (action.type === 'clear-cart') {
+        console.log('clear-cart')
         return {
             ...state,
             cart: []
