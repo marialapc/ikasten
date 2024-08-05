@@ -56,8 +56,8 @@ export default function Header({ cart, dispatch }: HeaderProps) {
                             />
                           </div>
                         </div>
-                        <div>
-                          <div>
+                        <div className="info-container">
+                          <div >
                             <div>{film.name}</div>
                             <div className="fw-bold">{film.price} €</div>
                           </div>
@@ -92,7 +92,7 @@ export default function Header({ cart, dispatch }: HeaderProps) {
                             </div>
                             <div>
                               <button
-                                className="btn"
+                                className=" x-btn"
                                 type="button"
                                 onClick={(event) => {
                                   event.stopPropagation();
