@@ -10,6 +10,10 @@ type HeaderProps = {
 export default function Header({ cart, dispatch }: HeaderProps) {
   const [isOpen, setIsOpen] = useState<boolean>();
   const isEmpty = useMemo(() => cart.length === 0, [cart]);
+  const cartQuantity = useMemo(
+    () => cart.reduce((total, item) => total + item.quantity, 0),
+    [cart]
+  );
   const cartTotal = useMemo(
     () => cart.reduce((total, item) => total + item.quantity * item.price, 0),
     [cart]
@@ -35,7 +39,9 @@ export default function Header({ cart, dispatch }: HeaderProps) {
             src="img\shopping-bag.png"
             alt="imagen carrito"
           />
-          <span className="counter js-counter">5</span>
+          {cartQuantity > 0 && (
+            <span className="counter js-counter">{cartQuantity}</span>
+          )}
         </div>
 
         <div id="carrito" className={`${isOpen ? "--is-open" : ""}`}>
