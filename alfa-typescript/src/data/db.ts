@@ -4,10 +4,10 @@ import type { Film } from '../types'
 export const db : Film[] = [
     {
         "id": 1,
-        "name": "Goodfellas",
-        "image": "goodfellas",
-        "director": "Martin Scorsese",
-        "price": 14.99
+        "name": "Donnie Darko",
+        "image": "donnie_darko",
+        "director": "Richard Kelly",
+        "price": 10.99
     },
     {
         "id": 2,
@@ -18,30 +18,30 @@ export const db : Film[] = [
     },
     {
         "id": 3,
+        "name": "Aftersun",
+        "image": "aftersun",
+        "director": "Charlotte Wells",
+        "price": 15.99
+    },
+    {
+        "id": 4,
+        "name": "Goodfellas",
+        "image": "goodfellas",
+        "director": "Martin Scorsese",
+        "price": 14.99
+    },
+    {
+        "id": 5,
         "name": "The Dark Knight",
         "image": "the_dark_knight",
         "director": "Christopher Nolan",
         "price": 12.99
     },
     {
-        "id": 4,
-        "name": "Pulp Fiction",
-        "image": "pulp_fiction",
-        "director": "Quentin Tarantino",
-        "price": 10.99
-    },
-    {
-        "id": 5,
-        "name": "Schindler's List",
-        "image": "schindler_s_list",
-        "director": "Steven Spielberg",
-        "price": 15.99
-    },
-    {
         "id": 6,
-        "name": "Forrest Gump",
-        "image": "forrest_gump",
-        "director": "Robert Zemeckis",
+        "name": "Alien",
+        "image": "alien",
+        "director": "Ridley Scott",
         "price": 11.99
     },
     {
