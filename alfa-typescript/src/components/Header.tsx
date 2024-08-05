@@ -35,6 +35,7 @@ export default function Header({ cart, dispatch }: HeaderProps) {
             src="img\shopping-bag.png"
             alt="imagen carrito"
           />
+          <span className="counter js-counter">5</span>
         </div>
 
         <div id="carrito" className={`${isOpen ? "--is-open" : ""}`}>
@@ -125,7 +126,7 @@ export default function Header({ cart, dispatch }: HeaderProps) {
               onClick={() => dispatch({ type: "clear-cart" })}
               className="btn btn-dark w-100 mt-3"
             >
-              Vaciar Carrito
+              Vaciar Cesta
             </button>
           )}
         </div>
