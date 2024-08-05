@@ -37,33 +37,33 @@ export default function Header({ cart, dispatch }: HeaderProps) {
           />
         </div>
 
-        <div id="carrito" className={`bg-white ${isOpen ? "--is-open" : ""}`}>
+        <div id="carrito" className={`${isOpen ? "--is-open" : ""}`}>
           {isEmpty ? (
-            <p className="text-center">La cesta está vacía</p>
+            <p className="text-center empty-cart">La cesta está vacía</p>
           ) : (
             <>
               <div className="table">
                 <div>
                   {cart.map((film) => (
                     <section key={film.id}>
-                      <ul className="cart-list">
+                      <div className="cart-item">
                         <div>
-                          <li>
+                          <div>
                             <img
                               className="img-fluid"
                               src={`/img/${film.image}.jpg`}
                               alt="imagen filmra"
                             />
-                          </li>
+                          </div>
                         </div>
                         <div>
                           <div>
-                            <li>{film.name}</li>
-                            <li className="fw-bold">{film.price} €</li>
+                            <div>{film.name}</div>
+                            <div className="fw-bold">{film.price} €</div>
                           </div>
 
-                          <ul className="button-container">
-                            <li className="button-container">
+                          <div className="button-container">
+                            <div className="button-container">
                               <button
                                 type="button"
                                 className="price-btn"
@@ -89,8 +89,8 @@ export default function Header({ cart, dispatch }: HeaderProps) {
                               >
                                 +
                               </button>
-                            </li>
-                            <li>
+                            </div>
+                            <div>
                               <button
                                 className="btn"
                                 type="button"
@@ -104,11 +104,10 @@ export default function Header({ cart, dispatch }: HeaderProps) {
                               >
                                 x
                               </button>
-                            </li>
-                          </ul>
+                            </div>
+                          </div>
                         </div>
-                      </ul>
-                      <hr />
+                      </div>
                     </section>
                   ))}
                 </div>
