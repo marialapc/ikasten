@@ -26,7 +26,9 @@ export default function Film({ film, dispatch }: FilmProps) {
         <h3 className="text-white" style={{ fontSize: '14px' }}>{film.price}  €</h3>
         <button
           type="button"
-          className="btn btn-dark w-50" style={{ fontSize: '14px' }}
+          className="btn btn-dark w-50" 
+          style={{ fontSize: '14px' }}
+          data-prevent-close 
           onClick={() => dispatch({ type: 'add-to-cart', payload: { item: film } })}
         >
           Añadir a la cesta

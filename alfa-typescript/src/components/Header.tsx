@@ -1,4 +1,4 @@
-import { useState, useMemo, Dispatch } from "react";
+import { useState, useEffect, useMemo, useRef, Dispatch } from "react";
 import type { CartItem } from "../types";
 import type { CartActions } from "../reducers/cart-reducer";
 
@@ -8,7 +8,9 @@ type HeaderProps = {
 };
 
 export default function Header({ cart, dispatch }: HeaderProps) {
-  const [isOpen, setIsOpen] = useState<boolean>();
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const cartRef = useRef<HTMLDivElement>(null);
+
   const isEmpty = useMemo(() => cart.length === 0, [cart]);
   const cartQuantity = useMemo(
     () => cart.reduce((total, item) => total + item.quantity, 0),
@@ -23,6 +25,21 @@ export default function Header({ cart, dispatch }: HeaderProps) {
   function roundToTwo(num: number): number {
     return Math.round(num * 100) / 100;
   }
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      if (cartRef.current && !cartRef.current.contains(event.target as Node) && !target.closest('[data-prevent-close]')) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   return (
     <header className="py-5 header">
@@ -44,7 +61,7 @@ export default function Header({ cart, dispatch }: HeaderProps) {
           )}
         </div>
 
-        <div id="carrito" className={`${isOpen ? "--is-open" : ""}`}>
+        <div id="carrito" className={`${isOpen ? "--is-open" : ""}`} ref={cartRef}>
           {isEmpty ? (
             <p className="text-center empty-cart">La cesta está vacía</p>
           ) : (
