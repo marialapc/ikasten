@@ -29,7 +29,7 @@ export default function Header({ cart, dispatch }: HeaderProps) {
       <a href="index.html">
         <img className="logo" src="img\TW.jpg" alt="" />
       </a>
-      <nav className="">
+      <nav>
         <div
           className="carrito js-carrito"
           onClick={() => setIsOpen((prev) => !prev)}
@@ -65,7 +65,7 @@ export default function Header({ cart, dispatch }: HeaderProps) {
                         </div>
                         <div className="info-container">
                           <div >
-                            <div>{film.name}</div>
+                            <div className="film-title">{film.name}</div>
                             <div className="fw-bold">{film.price} €</div>
                           </div>
 

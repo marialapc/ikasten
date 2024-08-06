@@ -884,3 +884,13 @@ width: 30px !important;
   color: var(--pink);
   font-size: 11px;
 }
+
+.film-title {
+  max-width: 120px;
+}
+
+@media (min-width: 768px) {
+  .film-title {
+    max-width: 150px;
+  }
+}
