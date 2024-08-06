@@ -35,7 +35,7 @@ function App() {
       <footer className="bg-dark py-5">
         <div className="">
           <p className="text-center fs-2 mt-4 m-md-0">
-           Made with ❤ by @marialapc
+          Created with ❤ by <a className="copy-link link-name" href="https://github.com/marialapc">@marialapc</a>
           </p>
         </div>
       </footer>

@@ -894,3 +894,7 @@ width: 30px !important;
     max-width: 150px;
   }
 }
+
+.link-name {
+  color: var(--pink);
+}
